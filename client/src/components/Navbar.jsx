@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { setLogout } from '../state/todoSlicer';
 import axios from 'axios';
-import { LuListTodo } from "react-icons/lu";
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {

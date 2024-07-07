@@ -1,6 +1,7 @@
 import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import validator from 'validator'
 // import dotenv from "dotenv";
 
 // dotenv.config()
@@ -8,8 +9,12 @@ import jwt from "jsonwebtoken";
 export const register = async (req, res) => {
   try {
     const { uname, password, todos } = req.body;
-    console.log(req.body);
-
+    if (!validator.isLength(uname, { min: 5 })) {
+      return res.status(400).json({ message: "Username should have minimum 5 characters" });
+    }
+    if (!validator.isLength(password, { min: 5 })) {
+      return res.status(400).json({ message: "Password should have minimum 5 characters" });    
+    }
     const exist = await User.findOne({ uname });
     if (exist) {
       return res.status(400).json({ message: "Username already in use." });
