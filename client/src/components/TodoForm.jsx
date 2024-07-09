@@ -23,9 +23,9 @@ const TodoForm = () => {
   
   return (
     <div className=''>
-      <form onSubmit={submitForm} className='flex justify-between mx-auto gap-5 p-4'>
-        <input value={text} onChange={(e) => setText(e.target.value)} className='w-full focus:outline-none focus:ring focus:border-blue-200 p-2 pl-3 rounded-md' type='text' placeholder='Add new todo...'/>
-        <button type='submit' className='bg-blue-500 p-2 rounded-md px-4 text-white cursor-pointer font-bold '>Add</button>
+      <form onSubmit={submitForm} className='flex justify-between mx-auto gap-3 p-4'>
+        <input value={text} onChange={(e) => setText(e.target.value)} className='w-full border-2 border-gray-200 focus:outline-none focus:ring focus:border-blue-200 p-2 pl-3 rounded-md' type='text' placeholder='Add new todo...'/>
+        <button type='submit' className='bg-blue-600 p-2 rounded-md px-4 text-white cursor-pointer font-bold '>Add</button>
       </form>
     </div>
   );

@@ -101,7 +101,7 @@ const Login = () => {
           <div className="p-2">
             <button
               type="submit"
-              className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-md w-full px-5 py-2.5 text-center ">
+              className="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-md w-full px-5 py-2.5 text-center ">
               Login
             </button>
 
@@ -115,7 +115,7 @@ const Login = () => {
                 Not Registered ?
                 <span
                   onClick={() => navigate("/")}
-                  className="text-blue-500 cursor-pointer hover:text-blue-800">
+                  className="text-blue-600 cursor-pointer hover:text-blue-800">
                   {" "}
                   Register
                 </span>
@@ -124,7 +124,7 @@ const Login = () => {
           </div>
         </form>
       </div>
-      <div className="hidden lg:flex w-auto h-screen px-2">
+      <div className="hidden lg:flex w-auto h-screen pl-2">
         <img src={todoimg} alt="" className=" h-screen w-auto object-cover" />
       </div>
     </div>

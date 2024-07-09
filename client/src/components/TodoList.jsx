@@ -70,17 +70,17 @@ const TodoList = () => {
       <div className="px-4 pt-4 flex font-bold gap-1 md:gap-2 ">
         <button
           onClick={() => dispatch(setFilter("all"))}
-          className="w-[7rem] border-2 text-md text-white p-2 rounded-md bg-gray-700 hover:bg-gray-800 focus:bg-gray-900">
+          className="w-[7rem] border-2 text-md text-white p-2 rounded-md bg-gray-700 hover:bg-gray-800 focus:bg-black">
           All
         </button>
         <button
           onClick={() => dispatch(setFilter("pending"))}
-          className="w-[7rem] border-2 text-md text-white p-2 rounded-md bg-gray-700 hover:bg-gray-800 focus:bg-gray-900">
+          className="w-[7rem] border-2 text-md text-white p-2 rounded-md bg-gray-700 hover:bg-gray-800 focus:bg-black">
           Pending
         </button>
         <button
           onClick={() => dispatch(setFilter("completed"))}
-          className="w-[7rem] border-2 text-md text-white p-2 rounded-md bg-gray-700 hover:bg-gray-800 focus:bg-gray-900">
+          className="w-[7rem] border-2 text-md text-white p-2 rounded-md bg-gray-700 hover:bg-gray-800 focus:bg-black">
           Completed
         </button>
       </div>

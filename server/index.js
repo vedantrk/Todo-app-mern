@@ -5,7 +5,6 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import todoRoutes from "./routes/todo.js";
 import authRoutes from "./routes/auth.js";
-import { verifyToken } from "./middleware/auth.js";
 
 dotenv.config();
 
