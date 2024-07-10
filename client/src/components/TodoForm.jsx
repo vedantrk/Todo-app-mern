@@ -11,7 +11,11 @@ const TodoForm = () => {
     e.preventDefault()
     
     try {
-      const response = await axios.post("http://localhost:3001/todo",{text},{ withCredentials: true });
+      const response = await axios.post(
+        `https://todo-app-mern-api-ashen.vercel.app/todo`,
+        { text },
+        { withCredentials: true }
+      );
       console.log(response.data)
       dispatch(postTodo(response.data))
       setText("");

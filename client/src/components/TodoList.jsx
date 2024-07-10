@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
 import { getTodo, deleteTodo, doneTodo, setFilter } from "../state/todoSlicer";
 import { MdDelete } from "react-icons/md";
 import { MdDone } from "react-icons/md";
@@ -8,32 +8,35 @@ import { IoClose } from "react-icons/io5";
 
 const TodoList = () => {
   const dispatch = useDispatch();
-  const todos =  useSelector((state) => state.todos.todos ) // 1st todos = name of store, 2nd todos = data from initial state in createslice
+  const todos = useSelector((state) => state.todos.todos); // 1st todos = name of store, 2nd todos = data from initial state in createslice
   const filter = useSelector((state) => state.todos.filter);
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/todo",{ withCredentials: true})
-        dispatch(getTodo(response.data))        
+        const response = await axios.get(
+          `https://todo-app-mern-api-ashen.vercel.app/todo`,
+          { withCredentials: true }
+        );
+        dispatch(getTodo(response.data));
+      } catch (error) {
+        console.error(error);
       }
-      catch(error) {
-        console.error(error)
-      }
-    }
+    };
     getData();
-  },[dispatch]);
+  }, [dispatch]);
 
   const handleDone = async (id) => {
     try {
-      console.log('handledone :'+id)
+      console.log("handledone :" + id);
       const response = await axios.patch(
-        `http://localhost:3001/todo/update/${id}`,{}, { withCredentials: true}
+        `https://todo-app-mern-api-ashen.vercel.app/todo/update/${id}`,
+        {},
+        { withCredentials: true }
       );
       dispatch(doneTodo({ id }));
       console.log(response.data);
-    } 
-    catch (error) {
+    } catch (error) {
       console.log(error);
     }
   };
@@ -41,14 +44,16 @@ const TodoList = () => {
   const handleDelete = async (id) => {
     try {
       console.log("handledelete :" + id);
-      const response = await axios.delete(`http://localhost:3001/todo/delete/${id}`, { withCredentials: true});
+      const response = await axios.delete(
+        `https://todo-app-mern-api-ashen.vercel.app/todo/delete/${id}`,
+        { withCredentials: true }
+      );
       console.log("Response from delete API:", response.data);
-      dispatch(deleteTodo({id}))
+      dispatch(deleteTodo({ id }));
+    } catch (error) {
+      console.log(error);
     }
-    catch (error) {
-      console.log(error)
-    }
-  }
+  };
 
   const filteredTodos = todos.filter((todo) => {
     if (filter === "completed") {
@@ -63,7 +68,7 @@ const TodoList = () => {
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "short", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
-   };
+  };
 
   return (
     <div className="">
@@ -128,6 +133,6 @@ const TodoList = () => {
       </div>
     </div>
   );
-}
+};
 
 export default TodoList;

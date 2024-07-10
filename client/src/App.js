@@ -1,5 +1,5 @@
 import HomePage from "./components/HomePage";
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import { useDispatch } from "react-redux";
@@ -13,13 +13,17 @@ function App() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/api/user", {
-          withCredentials: true,
-        });
-        
-        dispatch(setLogin({ user: response.data.user, token: response.data.token }));
-      } 
-      catch (error) {
+        const response = await axios.get(
+          `https://todo-app-mern-api-ashen.vercel.app/api/user`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        dispatch(
+          setLogin({ user: response.data.user, token: response.data.token })
+        );
+      } catch (error) {
         console.error("Failed to fetch user:", error);
       }
     };
@@ -30,9 +34,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-          <Route path="/" Component={Register}></Route>
-          <Route path="/login" Component={Login}></Route>
-          <Route path="/home" Component={HomePage}></Route>
+        <Route path="/" Component={Register}></Route>
+        <Route path="/login" Component={Login}></Route>
+        <Route path="/home" Component={HomePage}></Route>
       </Routes>
     </BrowserRouter>
   );

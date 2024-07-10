@@ -13,10 +13,13 @@ const Register = () => {
     e.preventDefault();
     setError(null);
     try {
-      const response = await axios.post("http://localhost:3001/register", {
-        uname,
-        password,
-      });
+      const response = await axios.post(
+        `https://todo-app-mern-api-ashen.vercel.app/register`,
+        {
+          uname,
+          password,
+        }
+      );
       console.log(response.data);
 
       if (response.status !== 200) {

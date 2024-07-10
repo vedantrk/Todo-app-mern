@@ -1,27 +1,26 @@
-import { useDispatch } from 'react-redux';
-import { setLogout } from '../state/todoSlicer';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { setLogout } from "../state/todoSlicer";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:3001/logout",
+        "https://todo-app-mern-api-ashen.vercel.app/logout",
         {},
         { withCredentials: true }
       );
-      console.log("signing out")
+      console.log("signing out");
       dispatch(setLogout());
-      navigate('/')
-    } 
-    catch (error) {
+      navigate("/");
+    } catch (error) {
       console.error("Error logging out:", error);
     }
-  }
+  };
 
   return (
     <div className="max-w-[1640px]  mx-auto flex justify-between items-center p-4 bg-black">
@@ -41,6 +40,6 @@ const Navbar = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;
