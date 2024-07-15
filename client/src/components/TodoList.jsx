@@ -14,7 +14,7 @@ const TodoList = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/todo`, {
+        const response = await axios.get(`http://localhost:3001/todo/data`, {
           withCredentials: true,
         });
         dispatch(getTodo(response.data));
@@ -29,7 +29,7 @@ const TodoList = () => {
     try {
       console.log("handledone :" + id);
       const response = await axios.patch(
-        `http://localhost:3001/todo/update/${id}`,
+        `http://localhost:3001/todo/data/update/${id}`,
         {},
         { withCredentials: true }
       );
@@ -44,7 +44,7 @@ const TodoList = () => {
     try {
       console.log("handledelete :" + id);
       const response = await axios.delete(
-        `http://localhost:3001/todo/delete/${id}`,
+        `http://localhost:3001/todo/data/delete/${id}`,
         { withCredentials: true }
       );
       console.log("Response from delete API:", response.data);
@@ -92,7 +92,7 @@ const TodoList = () => {
         {filteredTodos.map((item) => (
           <div
             key={item.id}
-            className="flex justify-between border-2 border-gray-200 shadow-md rounded-md flex-column mb-2 py-3 px-2 text-xl bg-white">
+            className="flex justify-between border border-gray-200 shadow-md rounded-md flex-column my-3 py-3 px-2 text-xl bg-white">
             <div
               className={
                 item.done

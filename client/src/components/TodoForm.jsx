@@ -12,7 +12,7 @@ const TodoForm = () => {
     
     try {
       const response = await axios.post(
-        `http://localhost:3001/todo`,
+        `http://localhost:3001/todo/data`,
         { text },
         { withCredentials: true }
       );

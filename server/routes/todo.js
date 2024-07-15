@@ -1,19 +1,24 @@
-import express from 'express';
-import { getTodos, createTodos,updateTodo, deleteTodo } from '../controller/TodoController.js'
-import { verifyToken } from '../middleware/auth.js';
+import express from "express";
+import {
+  getTodos,
+  createTodos,
+  updateTodo,
+  deleteTodo,
+} from "../controller/TodoController.js";
+import { verifyToken } from "../middleware/auth.js";
 
-const router = express.Router()
+const router = express.Router();
 
 // get all Todos
-router.get('/', verifyToken, getTodos)
+router.get("/data", verifyToken, getTodos);
 
 // post Todos
-router.post('/', verifyToken, createTodos)
+router.post("/data", verifyToken, createTodos);
 
 // update Todo
-router.patch('/update/:id', verifyToken, updateTodo)
+router.patch("/data/update/:id", verifyToken, updateTodo);
 
 //delete Todo
-router.delete('/delete/:id', verifyToken, deleteTodo)
+router.delete("/data/delete/:id", verifyToken, deleteTodo);
 
-export default router; 
+export default router;

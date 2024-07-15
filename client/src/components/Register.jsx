@@ -13,7 +13,7 @@ const Register = () => {
     e.preventDefault();
     setError(null);
     try {
-      const response = await axios.post(`http://localhost:3001/register`, {
+      const response = await axios.post(`http://localhost:3001/api/register`, {
         uname,
         password,
       });
