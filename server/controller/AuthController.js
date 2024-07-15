@@ -1,10 +1,7 @@
 import User from "../models/userModel.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import validator from 'validator'
-// import dotenv from "dotenv";
-
-// dotenv.config()
 
 export const register = async (req, res) => {
   try {

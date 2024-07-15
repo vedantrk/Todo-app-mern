@@ -12,10 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 6000;
 app.use(
   cors({
-    origin: [
-      `https://todo-app-mern-frontend-five.vercel.app
-`,
-    ],
+    origin: ["http://localhost:3000"],
     credentials: true,
   })
 );

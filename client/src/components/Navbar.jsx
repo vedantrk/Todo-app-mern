@@ -10,7 +10,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       await axios.post(
-        "https://todo-app-mern-api-ashen.vercel.app/logout",
+        "http://localhost:3001/logout",
         {},
         { withCredentials: true }
       );
