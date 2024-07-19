@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 6000;
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: ["https://todo-app-mern-frontend-j32r.onrender.com"],
     credentials: true,
   })
 );

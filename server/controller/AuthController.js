@@ -20,7 +20,7 @@ export const register = async (req, res) => {
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
 
-    const newUser = User.create({
+    const newUser = await User.create({
       uname,
       password: passwordHash,
       todos,
@@ -49,7 +49,11 @@ export const login = async (req, res) => {
     }
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_KEY);
-    res.cookie("token", token); // , {httpOnly: true, secure: true, sameSite: 'strict'}
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+    });  
     res.json({ user, token });
   } catch (error) {
     res.status(500).json({ error: error.message });

@@ -13,10 +13,13 @@ const Register = () => {
     e.preventDefault();
     setError(null);
     try {
-      const response = await axios.post(`http://localhost:3001/api/register`, {
-        uname,
-        password,
-      });
+      const response = await axios.post(
+        `https://todo-app-mern-aibj.onrender.com/api/register`,
+        {
+          uname,
+          password,
+        }
+      );
       console.log(response.data);
 
       if (response.status !== 200) {
@@ -64,7 +67,7 @@ const Register = () => {
             </label>
             <input
               value={uname}
-              onChange={(e) => setUname(e.target.value)}
+              onChange={(e) => setUname(e.target.value.toLowerCase())}
               type="text"
               id="username"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md block w-full p-2.5"
@@ -78,7 +81,7 @@ const Register = () => {
             </label>
             <input
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value.toLowerCase())}
               type="password"
               id="password"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md block w-full p-2.5 "

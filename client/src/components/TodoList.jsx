@@ -14,9 +14,12 @@ const TodoList = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/todo/data`, {
-          withCredentials: true,
-        });
+        const response = await axios.get(
+          `https://todo-app-mern-aibj.onrender.com/todo/data`,
+          {
+            withCredentials: true,
+          }
+        );
         dispatch(getTodo(response.data));
       } catch (error) {
         console.error(error);
@@ -29,7 +32,7 @@ const TodoList = () => {
     try {
       console.log("handledone :" + id);
       const response = await axios.patch(
-        `http://localhost:3001/todo/data/update/${id}`,
+        `https://todo-app-mern-aibj.onrender.com/todo/data/update/${id}`,
         {},
         { withCredentials: true }
       );
@@ -44,7 +47,7 @@ const TodoList = () => {
     try {
       console.log("handledelete :" + id);
       const response = await axios.delete(
-        `http://localhost:3001/todo/data/delete/${id}`,
+        `https://todo-app-mern-aibj.onrender.com/todo/data/delete/${id}`,
         { withCredentials: true }
       );
       console.log("Response from delete API:", response.data);

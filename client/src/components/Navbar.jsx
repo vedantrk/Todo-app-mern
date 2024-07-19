@@ -10,7 +10,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:3001/api/logout",
+        "https://todo-app-mern-aibj.onrender.com/api/logout",
         {},
         { withCredentials: true }
       );

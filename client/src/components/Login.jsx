@@ -20,7 +20,7 @@ const Login = () => {
         
         try {
             const response = await axios.post(
-              `http://localhost:3001/api/login`,
+              `https://todo-app-mern-aibj.onrender.com/api/login`,
               { uname, password },
               { withCredentials: true }
             );
@@ -76,7 +76,7 @@ const Login = () => {
             </label>
             <input
               value={uname}
-              onChange={(e) => setUname(e.target.value)}
+              onChange={(e) => setUname(e.target.value.toLowerCase())}
               type="text"
               id="username"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md block w-full p-2.5"
@@ -90,7 +90,7 @@ const Login = () => {
             </label>
             <input
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value.toLowerCase())}
               type="password"
               id="password"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md block w-full p-2.5 "
