@@ -36,7 +36,7 @@ export const updateTodo = async (req, res) => {
     if(todo){
       todo.done = !todo.done
     }
-    // /await todo.save();
+    await todo.save();
     if (!todo) {
       return res.status(404).json({ error: "Todo not found" });
     }
