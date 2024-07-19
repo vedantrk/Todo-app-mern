@@ -18,6 +18,10 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser())
+app.get("/", (req, res) => {
+  console.log("Server running Successfully");
+  res.send("Server running Successfully");
+});
 
 app.use("/api", authRoutes);
 
